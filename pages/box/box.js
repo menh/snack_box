@@ -1,4 +1,5 @@
 // pages/box/box.js
+const app = getApp()
 Page({
 
   /**
@@ -28,7 +29,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const self = this;
+    self.getGoodList();
   },
 
   /**
@@ -78,5 +80,80 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  
+  getGoodList: function () {
+    const self = this;
+    wx.request({
+      url: app.globalData.serverIp + 'getGoodList.do',
+      data: {
+        
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.setStorageSync('snack', res.data)
+        self.setData({
+          snack: res.data
+        })
+      },
+      fail: function (res) {
+
+      }
+    })
+  },
+
+  wxPay: function (e) {
+    const self = this;
+    const id = e.target.dataset.id;
+    const price = self.data.snack[id].price;
+    wx.request({
+      url: app.globalData.serverIp + 'getPayParamers.do',
+      data: {
+        totalFee: price,
+        openId: app.globalData.openid
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        self.toPay(res.data);
+      },
+      fail: function (res) {
+
+      }
+    });
+  },
+
+  toPay: function (args) {
+    const self = this;
+    console.log(args);
+    wx.requestPayment(
+      {
+        'timeStamp': args.timeStamp,
+        'nonceStr': args.nonceStr,
+        'package': args.package,
+        'signType': 'MD5',
+        'paySign': args.paySign,
+        'success': function (res) {
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '../openBox/openBox',
+            })
+          }, 100)
+        },
+        'fail': function (res) { },
+        'complete': function (res) { }
+      })
+  },
+  
+  wxPay1: function(e) {
+    const self = this;
+    console.log(e);
+    console.log(e.target.dataset.id);
+  },
 })

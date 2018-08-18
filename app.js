@@ -2,6 +2,7 @@
 App({
   onLaunch: function () {
     // 展示本地存储能力
+    const self = this;
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -9,6 +10,8 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log(res.code);
+        self.getOpenid(res.code);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -33,7 +36,37 @@ App({
       }
     })
   },
+
+  getOpenid: function (code) {
+    console.log("getOpenid");
+    const self = this;
+    wx.request({
+      url: this.globalData.serverIp + 'getWxOpenId.do',
+      method: 'POST',
+      data: { code: code },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+
+        console.log(res.data);
+        //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
+        self.globalData.openid = res.data
+       // self.getCustomerId();
+        // self.unifiedorder(res);
+      },
+      fail: function (res) {
+        console.log('获取商品列表失败');
+      }
+    })
+  },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    serverIp: 'http://localhost:8080/bubee/',
+    openid: '',
+    customerId: '',
+    appid: 'wx03b68c995d8d5409',
+    secret: "084abe624d5da0e8464c6f6e0224fd27"
   }
 })
