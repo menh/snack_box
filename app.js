@@ -11,7 +11,7 @@ App({
     wx.login({
       success: res => {
         console.log(res.code);
-        self.getOpenid(res.code);
+        self.getOpenid(res.code,self.globalData.appid, self.globalData.secret);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -37,13 +37,19 @@ App({
     })
   },
 
-  getOpenid: function (code) {
+  getOpenid: function (code,appid,secret) {
     console.log("getOpenid");
+    console.log("code: "+code);
+    console.log("appid: "+appid);
+    console.log("secret: "+secret);
     const self = this;
     wx.request({
       url: this.globalData.serverIp + 'getWxOpenId.do',
       method: 'POST',
-      data: { code: code },
+      data: { code: code,
+              appid: appid,
+              secret: secret
+      },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
@@ -63,9 +69,10 @@ App({
 
   globalData: {
     userInfo: null,
-    serverIp: 'http://localhost:8080/bubee/',
+    serverIp: 'http://203.195.196.254/snack_box_http/',
     openid: '',
     customerId: '',
+    secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',
     appid: 'wx03b68c995d8d5409',
     secret: "084abe624d5da0e8464c6f6e0224fd27"
   }
