@@ -2,8 +2,7 @@
   <view class = 'openBox-box'>
     <view class='openBox-input-label'>请输入零食盒子编号
     </view>
-    <input class='openBox-input' type='number'></input>
-    <navigator url="../box/box" class='openBox-submit' bindtap='openBox'>确定
-    </navigator>
+    <input class='openBox-input' id='box-number' type='number' bindinput='boxNumberInput'></input>
+    <button class='openBox-submit' bindtap='openBox'>确 定 </button>
   </view>
 </view>

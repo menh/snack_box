@@ -40,8 +40,8 @@ App({
   getOpenid: function (code,appid,secret) {
     console.log("getOpenid");
     console.log("code: "+code);
-    console.log("appid: "+appid);
-    console.log("secret: "+secret);
+    console.log("appid: " + appid);
+    console.log("secret: " + secret);
     const self = this;
     wx.request({
       url: this.globalData.serverIp + 'getWxOpenId.do',
@@ -58,18 +58,20 @@ App({
         console.log(res.data);
         //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
         self.globalData.openid = res.data
+        wx.setStorageSync('openId', res.data)
        // self.getCustomerId();
         // self.unifiedorder(res);
       },
       fail: function (res) {
-        console.log('获取商品列表失败');
+        console.log('获取商品列表失败');//？
       }
     })
   },
 
   globalData: {
     userInfo: null,
-    serverIp: 'http://203.195.196.254/snack_box_http/',
+    //serverIp: 'http://203.195.196.254/snack_box_http/',
+    serverIp: 'http://www.gzfjcyd.com/snack_box_http/',
     openid: '',
     customerId: '',
     secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',

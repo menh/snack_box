@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    boxNumber:''
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -64,7 +64,15 @@ Page({
   
   },
 
-  openBox: function() {
-    
+  openBox: function () {
+    wx.showToast({
+      title: boxNumber,
+    })
+  },
+
+  boxNumberInput : function (e) {
+    this.setData({
+      boxNumber: e.detail.value
+    })
   }
 })
