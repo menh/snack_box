@@ -54,7 +54,6 @@ page{
   background-color: white;
   line-height: 80rpx;
   font-size: 40rpx;
-  font-weight: bold;
   text-align: center;
   color: #0653A8;
 }
