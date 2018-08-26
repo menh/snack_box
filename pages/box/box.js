@@ -5,23 +5,28 @@ Page({
   /**
    * 页面的初始数据
    */
+  category: [
+    {categoryName: "分类1", categorySign: "1"},
+    {categoryName: "分类2", categorySign: "2" },
+    {categoryName: "分类3", categorySign: "3" },
+    {categoryName: "分类4", categorySign: "4" }
+  ],
   data: {
-    snack: [
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
-      { name: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+    snack1: [
+    { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+    { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+    { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 }
+    ],
+
+    snack2: [
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 }
+    ],
+    snack3: [
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 },
+      { goodName: '亲嘴烧', img: '../../image/snack/food.png', price: 18.8 }
     ]
   },
 
@@ -30,6 +35,7 @@ Page({
    */
   onLoad: function (options) {
     const self = this;
+    return ;
     self.getGoodList();
   },
 

@@ -69,7 +69,8 @@ App({
 
   globalData: {
     userInfo: null,
-    serverIp: 'http://203.195.196.254/snack_box_http/',
+    //serverIp: 'http://203.195.196.254/snack_box_http/',
+    serverIp:'https://www.gzfjcyd.com/snack_box_http/',
     openid: '',
     customerId: '',
     secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',

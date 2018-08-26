@@ -1,6 +1,27 @@
 <!--pages/box/box.wxml-->
 <view class='box'>
-  <view class='box-snack' wx:for="{{snack}}" wx:key="{{id}}">
+  <view class = "box-category" >分类1</view>
+  <view class='box-snack' wx:for="{{snack1}}" wx:key="{{id}}">
+    <image class='box-snack-img' src='{{item.img}}'></image>
+    <view class='box-snack-property'>
+      <view class='box-snack-name'>{{item.goodName}}</view>
+      <view class='box-snack-price'>￥{{item.price}}/份</view>
+    </view>
+    <view url="../openBox/openBox"  class='box-snack-buy' bindtap='wxPay' data-id="{{item.goodId}}">购买
+    </view>
+  </view>
+  <view class = "box-category" >分类2</view>
+  <view class='box-snack' wx:for="{{snack2}}" wx:key="{{id}}">
+    <image class='box-snack-img' src='{{item.img}}'></image>
+    <view class='box-snack-property'>
+      <view class='box-snack-name'>{{item.goodName}}</view>
+      <view class='box-snack-price'>￥{{item.price}}/份</view>
+    </view>
+    <view url="../openBox/openBox"  class='box-snack-buy' bindtap='wxPay' data-id="{{item.goodId}}">购买
+    </view>
+  </view>
+  <view class = "box-category" >分类3</view>
+  <view class='box-snack' wx:for="{{snack3}}" wx:key="{{id}}">
     <image class='box-snack-img' src='{{item.img}}'></image>
     <view class='box-snack-property'>
       <view class='box-snack-name'>{{item.goodName}}</view>

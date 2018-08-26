@@ -1,11 +1,10 @@
 // pages/openBox/openBox.js
-Page({
-
+Page({  
   /**
    * 页面的初始数据
    */
   data: {
-  
+    boxNum : "123"
   },
 
   /**
@@ -63,8 +62,19 @@ Page({
   onShareAppMessage: function () {
   
   },
+  
+  inputBoxNum: function (e) {
+    const self = this;
+    var boxNum = e.detail.value;
+    console.log(boxNum);
+    self.setData({
+      boxNum: boxNum
+    });
+  },
 
-  openBox: function() {
-    
+  openBox: function(e) {
+    const self = this;
+    var boxNum = e.target.dataset.boxnum;
+    console.log(boxNum);
   }
 })

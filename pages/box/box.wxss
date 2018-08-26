@@ -10,6 +10,13 @@ page{
   padding-top: 10rpx;
 }
 
+.box-category{
+  width: 150rpx;
+  background-color: yellowgreen;
+  border-radius: 15rpx;
+  padding-left:10rpx;
+}
+
 .box-snack{
   width: 100%;
   height: 130rpx;
