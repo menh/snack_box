@@ -168,7 +168,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getGoodList();
   },
 
   /**
@@ -244,7 +244,8 @@ Page({
         console.log(res.data);
         wx.setStorageSync('snack', res.data)
         self.setData({
-          snack: res.data
+          snack: res.data,
+          category: res.data
         })
       },
       fail: function(res) {
@@ -256,7 +257,7 @@ Page({
   wxPay: function(e) {
     const self = this;
     const id = e.target.dataset.id;
-    const price = self.data.snack[id].price;
+    const price = e.target.dataset.price;
     wx.request({
       url: app.globalData.serverIp + 'getPayParamers.do',
       data: {
@@ -268,7 +269,7 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        self.toPay(res.data);
+        self.toPay(res.data,id);
       },
       fail: function(res) {
 
@@ -276,7 +277,7 @@ Page({
     });
   },
 
-  toPay: function(args) {
+  toPay: function(args,goodId) {
     const self = this;
     console.log(args);
     wx.requestPayment({
@@ -286,6 +287,7 @@ Page({
       'signType': 'MD5',
       'paySign': args.paySign,
       'success': function(res) {
+
         setTimeout(function() {
           wx.navigateTo({
             url: '../openBox/openBox',
@@ -295,6 +297,10 @@ Page({
       'fail': function(res) {},
       'complete': function(res) {}
     })
+  },
+
+  placeAnOrder: function(goodId){
+
   },
 
   wxPay1: function(e) {

@@ -13,12 +13,12 @@
       <view class="box-category" id="category_{{index}}">{{item.categoryName}}</view>
 
       <view class='box-snack' wx:for="{{item.categoryItem}}"wx:for-item="snack_item" wx:key="{{index}}">
-        <image class='box-snack-img' src='{{snack_item.img}}'></image>
+        <image class='box-snack-img' src='{{snack_item.goodPic}}'></image>
         <view class='box-snack-property'>
           <view class='box-snack-name'>{{snack_item.goodName}}</view>
-          <view class='box-snack-price'>￥{{snack_item.price}}/{{snack_item.unit}}</view>
+          <view class='box-snack-price'>￥{{snack_item.price}}/{{snack_item.goodUnit}}</view>
         </view>
-        <button class='box-snack-buy' type="default" bindtap='wxPay' data-id="{{snack_item.goodId}}">购 买
+        <button class='box-snack-buy' type="default" bindtap='wxPay' data-id="{{snack_item.goodId}}" data-price="{{snack_item.price}}">购 买
         </button>
       </view>
 
