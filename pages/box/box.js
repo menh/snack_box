@@ -17,16 +17,16 @@ Page({
         price: 18.8,
         unit: "份"
       }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
         goodName: '亲嘴烧',
         img: '../../image/snack/food.png',
         price: 18.8,
@@ -55,16 +55,16 @@ Page({
         price: 18.8,
         unit: "份"
       }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
         goodName: '亲嘴烧',
         img: '../../image/snack/food.png',
         price: 18.8,
@@ -116,46 +116,46 @@ Page({
         price: 18.8,
         unit: "份"
       }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
-          goodName: '亲嘴烧',
-          img: '../../image/snack/food.png',
-          price: 18.8,
-          unit: "份"
-        }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
+        goodName: '亲嘴烧',
+        img: '../../image/snack/food.png',
+        price: 18.8,
+        unit: "份"
+      }, {
         goodName: '亲嘴烧',
         img: '../../image/snack/food.png',
         price: 18.8,
@@ -168,9 +168,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const self = this;
-    return;
-    self.getGoodList();
 
   },
 
@@ -185,6 +182,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var boxNum = '';
+    boxNum = wx.getStorageSync('boxNumber');
+    if (boxNum != '') {
+      wx.setNavigationBarTitle({
+        title: '盒子编号：' + boxNum
+      })
+    }
+    this.getGoodList();
     this.updateCateHeight();
   },
 
@@ -224,6 +229,7 @@ Page({
   },
 
   getGoodList: function() {
+    console.log("?")
     const self = this;
     wx.request({
       url: app.globalData.serverIp + 'getGoodList.do',
@@ -242,7 +248,7 @@ Page({
         })
       },
       fail: function(res) {
-
+        console.log(res);
       }
     })
   },
@@ -308,26 +314,12 @@ Page({
   },
 
   updateCateHeight: function() {
-    // var query = wx.createSelectorQuery().in(this);
     let heightArr = [];
     let s = 0;
-    // console.log("nihao");
-    // query.selectAll('.box_cate').boundingClientRect((react) => {
-    //   console.log(react);
-    //   react.forEach((res) => {
-    //     s += res.height;
-    //     heightArr.push(s)
-    //   });
-    //   console.log(heightArr);
 
-    //   this.setData({
-    //     heightArr: heightArr
-    //   })
-    // });
+    var query = wx.createSelectorQuery().in(this);
 
-var query = wx.createSelectorQuery().in(this);
-
-    query.selectAll('.box_cate').boundingClientRect(function(res){
+    query.selectAll('.box_cate').boundingClientRect(function(res) {
       // console.log(res);
       res.forEach((react) => {
         // console.log(react);
@@ -343,18 +335,15 @@ var query = wx.createSelectorQuery().in(this);
     let scrollTop = e.detail.scrollTop;
     let heightArr = getApp().globalData.heightArr;
     var index = 0;
-    // console.log(heightArr[0]);
-    for (var i = 0; i < heightArr.length;i++){
-      // console.log(scrollTop);
-      // console.log(heightArr[i]);
-      if(heightArr[i]>scrollTop){
+    for (var i = 0; i < heightArr.length; i++) {
+      if (heightArr[i] > scrollTop) {
         index = i;
-        console.log(index);
+        // console.log(index);
         break;
       }
     }
     this.setData({
-      navActive:index
+      navActive: index
     });
   }
 })

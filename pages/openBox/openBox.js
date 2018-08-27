@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    boxNumber:'123'
+    boxNumber:''
   },
 
   /**
@@ -73,15 +73,20 @@ Page({
 
   openBox: function () {
     var boxNum = this.data.boxNumber;
-    if(boxNum != ''){
-      console.log(boxNum);
+    if (boxNum != '' && boxNum.length == 6){
+      console.log(boxNum.length);
       wx.navigateTo({
         url: '../box/box',
       })
-    }else{
+    }else if(boxNum != ''){
+      wx.showToast({
+        title: '请输入6位正确编号',
+        icon:"none"
+      })
+    } else {
       wx.showToast({
         title: '请输入盒子编号',
-        icon:"none"
+        icon: "none"
       })
     }
   },
