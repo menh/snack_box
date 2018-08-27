@@ -79,6 +79,7 @@ App({
     customerId: '',
     secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',
     appid: 'wx03b68c995d8d5409',
-    secret: "084abe624d5da0e8464c6f6e0224fd27"
+    secret: "084abe624d5da0e8464c6f6e0224fd27",
+    heightArr:[]
   }
 })

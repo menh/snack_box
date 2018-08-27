@@ -1,35 +1,28 @@
 <!--pages/box/box.wxml-->
-<view class='box'>
-  <view class = "box-category" >早餐面包</view>
-  <view class='box-snack' wx:for="{{snack1}}" wx:key="{{id}}">
-    <image class='box-snack-img' src='{{item.img}}'></image>
-    <view class='box-snack-property'>
-      <view class='box-snack-name'>{{item.goodName}}</view>
-      <view class='box-snack-price'>￥{{item.price}}/份</view>
+<view class='home'>
+  <view class='left'>
+    <view class='leftColumn'>
+      <view wx:for="{{category}}" wx:key="{{index}}" data-id="category_{{index}}" data-index="{{index}}" class="left-category{{index === navActive ? '-choose':''}}" catchtap='chooseType'>{{item.categoryName}}
+      </view>
     </view>
-    <button class='box-snack-buy'  type="default" bindtap='wxPay' data-id="{{item.goodId}}">购 买
-    </button>
   </view>
 
+  <scroll-view scroll-y='true' class='box' scroll-into-view="{{toView}}" bindscroll="onScroll">
+    <view class="box_cate" wx:for="{{category}}" wx:key="{{index}}">
 
-  <view class = "box-category" >开胃零食</view>
-  <view class='box-snack' wx:for="{{snack2}}" wx:key="{{id}}">
-    <image class='box-snack-img' src='{{item.img}}'></image>
-    <view class='box-snack-property'>
-      <view class='box-snack-name'>{{item.goodName}}</view>
-      <view class='box-snack-price'>￥{{item.price}}/份</view>
+      <view class="box-category" id="category_{{index}}">{{item.categoryName}}</view>
+
+      <view class='box-snack' wx:for="{{item.categoryItem}}"wx:for-item="snack_item" wx:key="{{index}}">
+        <image class='box-snack-img' src='{{snack_item.img}}'></image>
+        <view class='box-snack-property'>
+          <view class='box-snack-name'>{{snack_item.goodName}}</view>
+          <view class='box-snack-price'>￥{{snack_item.price}}/{{snack_item.unit}}</view>
+        </view>
+        <button class='box-snack-buy' type="default" bindtap='wxPay' data-id="{{snack_item.goodId}}">购 买
+        </button>
+      </view>
+
     </view>
-    <button class='box-snack-buy'  type="default" bindtap='wxPay' data-id="{{item.goodId}}">购 买
-    </button>
-  </view>
-  <view class = "box-category" >分类3</view>
-  <view class='box-snack' wx:for="{{snack3}}" wx:key="{{id}}">
-    <image class='box-snack-img' src='{{item.img}}'></image>
-    <view class='box-snack-property'>
-      <view class='box-snack-name'>{{item.goodName}}</view>
-      <view class='box-snack-price'>￥{{item.price}}/份</view>
-    </view>
-    <button class='box-snack-buy'  type="default" bindtap='wxPay' data-id="{{item.goodId}}">购 买
-    </button>
-  </view>
+  </scroll-view>
+
 </view>

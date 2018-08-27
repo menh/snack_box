@@ -1,20 +1,64 @@
 /* pages/box/box.wxss */
 page{
-  height:100%;
+  height: 100%;
 }
 
-.box{
+.home {
   width: 100%;
   height: 100%;
-  background-color: #F4F4F4;
-  padding-top: 10rpx;
+  background-color: #f4f4f4;
+  display: flex;
 }
 
-.box-category{
+.left{
+  width: 160rpx;
+  height: 100%;
+  position: fixed;
+}
+
+.leftColumn{
+  height: 100%;
+  padding-top: 20rpx;
+  background-color: #8FBFF5;
+  flex-direction: row;
+}
+
+.left-category{
+  width: 100%;
+  height: 110rpx;
+  line-height: 110rpx;
+  margin-bottom: 20rpx;
+  color: white;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.left-category-choose{
+  width: 100%;
+  height: 110rpx;
+  background-color: white;
+  line-height: 110rpx;
+  margin-bottom: 20rpx;
+  color: #8FBFF5;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.box {
+  width: 590rpx;
+  height: 100%;
+  margin-left: 160rpx;
+  background-color: #f4f4f4;
+  margin-top: 10rpx;
+}
+
+.box-category {
   width: 155rpx;
   height: 50rpx;
   margin: 15rpx;
-  background-color: #267BD9;
+  background-color: #267bd9;
   border-radius: 10rpx;
   color: white;
   font-size: 30rpx;
@@ -22,8 +66,8 @@ page{
   line-height: 50rpx;
 }
 
-.box-snack{
-  width: 720rpx;
+.box-snack {
+  width: 560rpx;
   height: 120rpx;
   border-radius: 8rpx;
   margin-left: auto;
@@ -36,14 +80,14 @@ page{
   background-color: white;
 }
 
-.box-snack-img{
+.box-snack-img {
   width: 100rpx;
   height: 100rpx;
   margin-left: 15rpx;
 }
 
-.box-snack-property{
-  width: 300rpx;
+.box-snack-property {
+  width: 220rpx;
   height: 80rpx;
   margin-left: 25rpx;
   line-height: 100%;
@@ -51,20 +95,21 @@ page{
   flex-direction: column;
   align-items: left;
 }
-.box-snack-name{
+
+.box-snack-name {
   margin-top: 7rpx;
   margin-bottom: 5rpx;
   color: #585858;
   font-size: 32rpx;
 }
 
-.box-snack-price{
+.box-snack-price {
   margin-top: 7rpx;
-  color: #999999;
+  color: #999;
   font-size: 26rpx;
 }
 
-.box-snack-buy{
+.box-snack-buy {
   width: 145rpx;
   height: 65rpx;
   line-height: 65rpx;
