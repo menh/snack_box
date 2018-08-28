@@ -19,7 +19,7 @@ Page({
   onReady: function () {
     var boxNum = wx.getStorageSync('boxNumber');
     if (boxNum != '') {
-      console.log(boxNum);
+      // console.log(boxNum);
       this.data.boxNumber = boxNum;
       this.setData({
         boxNumber: boxNum
@@ -74,7 +74,7 @@ Page({
   openBox: function () {
     var boxNum = this.data.boxNumber;
     if (boxNum != '' && boxNum.length == 6){
-      console.log(boxNum.length);
+      // console.log(boxNum.length);
       wx.navigateTo({
         url: '../box/box',
       })
