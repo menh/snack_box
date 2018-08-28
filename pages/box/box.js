@@ -281,8 +281,10 @@ Page({
     wx.request({
       url: app.globalData.serverIp + 'getPayParamers.do',
       data: {
-        totalFee: price,
-        openId: app.globalData.openid
+        totalFee: price*100,
+        openId: app.globalData.openid,
+        appId: app.globalData.appid,
+        mchId: app.globalData.mchId
       },
       method: 'POST',
       header: {

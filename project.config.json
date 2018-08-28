@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
-	"appid": "wx03b68c995d8d5409",
+	"appid": "wx18559bdf27287a41",
 	"projectname": "snack_box",
 	"isGameTourist": false,
 	"condition": {

@@ -72,6 +72,10 @@ Page({
   
 
   openBox: function () {
+    wx.navigateTo({
+      url: '../box/box',
+    })
+    return ;
     var boxNum = this.data.boxNumber;
     if (boxNum != '' && boxNum.length == 6){
       // console.log(boxNum.length);

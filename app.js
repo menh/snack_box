@@ -73,13 +73,15 @@ App({
 
   globalData: {
     userInfo: null,
+    //serverIp: 'http://localhost:8080/bubee/',
     //serverIp: 'http://203.195.196.254/snack_box_http/',
     serverIp:'https://www.gzfjcyd.com/snack_box_http/',
     openid: '',
     customerId: '',
     // secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',
-    appid: 'wx03b68c995d8d5409',
-    secret: "084abe624d5da0e8464c6f6e0224fd27",
+    appid: 'wx18559bdf27287a41',
+    secret: "820c89735e9a6de87e7525811db45dde",
+    mchId: "1505544541",
     heightArr:[]
   }
 })
