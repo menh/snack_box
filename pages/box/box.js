@@ -26,6 +26,7 @@ Page({
    */
   onLoad: function(options) {
     // this.getGoodList();
+    this.placeSnackOrder(1,1);
   },
 
   /**
@@ -196,5 +197,42 @@ Page({
     this.setData({
       navActive: index
     });
-  }
+  },
+
+  placeSnackOrder: function(goodId,boxNum) {
+    var data = new Date();
+    var orderTime =  this.formatTime(data);
+    wx.request({
+      url: app.globalData.serverIp + 'placeSnackOrder.do',
+      data: {
+        goodId: goodId,
+        boxBsn: boxNum,
+        orderTime: orderTime
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log("下单成功");
+      },
+      fail: function (res) {
+        console.log("下单失败");
+      }
+    });
+  },
+  formatTime: function (date) {
+    var year = date.getFullYear()
+    var month = date.getMonth() + 1
+    var day = date.getDate()
+
+    var hour = date.getHours()
+    var minute = date.getMinutes()
+    var second = date.getSeconds()
+    return [year, month, day].map(this.formatNumber).join('/') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
+  },
+  formatNumber: function (n) {
+    n = n.toString()
+    return n[1] ? n : '0' + n
+  },
 })
