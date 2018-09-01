@@ -82,6 +82,8 @@ App({
     appid: 'wx18559bdf27287a41',
     secret: "820c89735e9a6de87e7525811db45dde",
     mchId: "1505544541",
-    heightArr:[]
+    heightArr:[],
+    category:[],
+    flag:false
   }
 })

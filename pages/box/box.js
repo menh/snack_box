@@ -7,177 +7,31 @@ Page({
    */
 
   data: {
-    toView: 'category-1',
+    toView: 'category_0',
     navActive: 0,
-    categoru:[]
-    // category: [{
-    //   categoryName: "早餐面包",
-    //   categoryItem: [{
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }]
-    // }, {
-    //   categoryName: "开胃零食",
-    //   categoryItem: [{
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }]
-    // }, {
-    //   categoryName: "差不多了",
-    //   categoryItem: [{
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }]
-    // }, {
-    //   categoryName: "就这样吧",
-    //   categoryItem: [{
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }, {
-    //     goodName: '亲嘴烧',
-    //     img: '../../image/snack/food.png',
-    //     price: 18.8,
-    //     unit: "份"
-    //   }]
-    // }]
+    category: []
   },
+  // category: [{
+  //   categoryName: "早餐面包",
+  //   categoryItem: [{
+  //     goodName: '亲嘴烧',
+  //     img: '../../image/snack/food.png',
+  //     price: 18.8,
+  //     unit: "份"
+  //   }]
+  // }]
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getGoodList();
+    // this.getGoodList();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    this.getGoodList();
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -191,7 +45,15 @@ Page({
       wx.setNavigationBarTitle({
         title: '盒子编号：' + boxNum
       })
-    }
+    };
+
+    //显示list
+    this.setData({
+      category: app.globalData.category
+    });
+
+
+    this.updateCateHeight();
   },
 
   /**
@@ -229,59 +91,22 @@ Page({
 
   },
 
-  getGoodList: function() {
-    
-    wx.showToast({
-      title: '',
-      icon:"loading",
-      duration:30000
-    })
-    const self = this;
-    wx.request({
-      url: app.globalData.serverIp + 'getGoodList.do',
-      data: {
-
-      },
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function(res) {
-        wx.hideToast();
-        // console.log(res.data);
-        wx.setStorageSync('snack', res.data)
-        self.setData({
-          snack: res.data,
-          category: res.data
-        })
-        self.updateCateHeight();
-      },
-      fail: function(res) {
-        // console.log(res);
-        wx.showToast({
-          title: '连接失败',
-          duration: 30000
-        })
-      }
-    })
-  },
-
   wxPay: function(e) {
     wx.showNavigationBarLoading();
     wx.showToast({
       title: '',
-      icon:"loading",
-      duration:5000
+      icon: "loading",
+      duration: 5000
     })
     const self = this;
     const id = e.target.dataset.id;
     const price = e.target.dataset.price;
-    console.log("price:", price);
-    console.log("openId:", app.globalData.openid);
+    console.log(app.globalData.openid);
     wx.request({
       url: app.globalData.serverIp + 'getPayParamers.do',
       data: {
-        totalFee: price*100,
+        // totalFee: price,
+        totalFee: price * 100,
         openId: app.globalData.openid,
         appId: app.globalData.appid,
         mchId: app.globalData.mchId
@@ -293,9 +118,11 @@ Page({
       success: function(res) {
         wx.hideNavigationBarLoading();
         wx.hideToast();
+        console.log(res.data);
+        console.log(id);
         self.toPay(res.data, id);
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.hideNavigationBarLoading()
         wx.showToast({
           title: '连接失败'
@@ -316,29 +143,13 @@ Page({
       'success': function(res) {
         wx.showToast({
           title: '购买成功',
-          icon:"success",
-          duration:1500
+          icon: "success",
+          duration: 1500
         })
-
-        // setTimeout(function() {
-        //   wx.navigateTo({
-        //     url: '../openBox/openBox',
-        //   })
-        // }, 100)
       },
       'fail': function(res) {},
       'complete': function(res) {}
     })
-  },
-
-  placeAnOrder: function(goodId) {
-
-  },
-
-  wxPay1: function(e) {
-    const self = this;
-    // console.log(e);
-    // console.log(e.target.dataset.id);
   },
 
   chooseType: function(e) {
@@ -354,25 +165,27 @@ Page({
   updateCateHeight: function() {
     let heightArr = [];
     let s = 0;
+    var self = this;
 
     var query = wx.createSelectorQuery().in(this);
 
     query.selectAll('.box_cate').boundingClientRect(function(res) {
-      // console.log(res);
+      console.log(res);
       res.forEach((react) => {
         // console.log(react);
         s += react.height;
         heightArr.push(s);
       });
-      // console.log(heightArr);
+      console.log(heightArr);
       getApp().globalData.heightArr = heightArr;
     }).exec();
   },
 
-  onScroll: function(e) {
+  onScroll: function (e) {
     let scrollTop = e.detail.scrollTop;
     let heightArr = getApp().globalData.heightArr;
     var index = 0;
+    console.log(heightArr);
     for (var i = 0; i < heightArr.length; i++) {
       if (heightArr[i] > scrollTop) {
         index = i;
