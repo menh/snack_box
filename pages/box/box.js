@@ -26,7 +26,6 @@ Page({
    */
   onLoad: function(options) {
     // this.getGoodList();
-    this.placeSnackOrder(1,1);
   },
 
   /**
@@ -135,6 +134,8 @@ Page({
   toPay: function(args, goodId) {
     const self = this;
     // console.log(args);
+    var boxNum = wx.getStorageSync('boxNumber');
+
     wx.requestPayment({
       'timeStamp': args.timeStamp,
       'nonceStr': args.nonceStr,
@@ -142,6 +143,8 @@ Page({
       'signType': 'MD5',
       'paySign': args.paySign,
       'success': function(res) {
+        //写单
+        placeSnackOrder(goodId,boxNum);
         wx.showToast({
           title: '购买成功',
           icon: "success",
