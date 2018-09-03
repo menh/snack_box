@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag:false,
+    flag:false,//用来表示用户列表的获取情况
     boxNumber: ''
   },
 
@@ -119,7 +119,11 @@ Page({
     })
     var boxNum = this.data.boxNumber;
     wx.setStorageSync('boxNumber', boxNum);
-    // wx.setStorageSync('boxNumber', 123);
+
+    if (boxNum.length == 6) {
+      // 收起键盘
+      wx.hideKeyboard()
+    }
   },
 
   getGoodList: function() {
@@ -155,5 +159,6 @@ Page({
       }
     })
   },
+
 
 })

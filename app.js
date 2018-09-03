@@ -79,7 +79,6 @@ App({
     secret: "820c89735e9a6de87e7525811db45dde",
     mchId: "1505544541",
     heightArr:[],
-    category:[],
-    flag:false
+    category:[]
   }
 })
