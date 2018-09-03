@@ -55,7 +55,7 @@ App({
       },
       success: function (res) {
 
-        console.log(res.data);
+        console.log("openid: " + res.data);
         //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
         self.globalData.openid = res.data
         wx.setStorageSync('openId', res.data)
