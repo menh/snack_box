@@ -75,10 +75,10 @@ Page({
 
 
   openBox: function() {
-    // wx.navigateTo({
-    //   url: '../box/box',
-    // })
-    // return ;
+    /* wx.navigateTo({
+       url: '../box/box',
+     })
+     return ;*/
     var self = this;
     var boxNum = this.data.boxNumber;
     if (boxNum != '' && boxNum.length == 6) {
@@ -159,6 +159,4 @@ Page({
       }
     })
   },
-
-
 })

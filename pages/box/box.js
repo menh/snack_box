@@ -25,7 +25,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -89,6 +91,9 @@ Page({
     const self = this;
     const id = e.target.dataset.id;
     const price = e.target.dataset.price;
+    const goodName = e.target.dataset.goodname;
+    const body = wx.getStorageSync('boxNumber')+":"+goodName;
+
     // console.log(app.globalData.openid);
     wx.request({
       url: app.globalData.serverIp + 'getPayParamers.do',
@@ -97,7 +102,8 @@ Page({
         totalFee: price * 100,
         openId: app.globalData.openid,
         appId: app.globalData.appid,
-        mchId: app.globalData.mchId
+        mchId: app.globalData.mchId,
+        body : body
       },
       method: 'POST',
       header: {
