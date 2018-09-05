@@ -159,4 +159,10 @@ Page({
       }
     })
   },
+
+  show_box:function(e){
+    wx.navigateTo({
+      url: '../show/show',
+    })
+  }
 })

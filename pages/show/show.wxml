@@ -1,0 +1,7 @@
+<view class='show'>
+  <view class='show-title'>邀请其它宿舍加入宅宅快乐盒</view>
+  <view class='show-title'>即可得5元现金！</view>
+
+  <view class='show-t'>填写您的手机号，用于收款</view>
+  <input class='show-phone' type='number' placeholder="手机号码" auto-focus='true'></input>
+</view>

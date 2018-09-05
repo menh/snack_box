@@ -1,9 +1,8 @@
 {
   "pages":[
+    "pages/show/show",
     "pages/openBox/openBox",
-    "pages/box/box",
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/box/box"
   ],
   "window":{
     "backgroundTextStyle": "light",
