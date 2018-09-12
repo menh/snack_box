@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/show/show",
     "pages/openBox/openBox",
+    "pages/show/show",
     "pages/box/box"
   ],
   "window":{
