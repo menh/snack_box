@@ -1,0 +1,22 @@
+page{
+  height:100%;
+}
+
+.show{
+  height: 100%;
+  width: 100%;
+  background-color: #8FBFF5;
+}
+
+.show-title{
+  color: white;
+}
+
+.show-t{
+  color: white;
+}
+.show-phone{
+  height: 90rpx;
+  width: 300rpx;
+  background-color: white;
+}
