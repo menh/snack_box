@@ -4,6 +4,6 @@
     </view>
     <input class='openBox-input' id='box-number' type='number' bindinput='boxNumberInput' value='{{boxNumber}}' />
     <button class='openBox-submit' bindtap='openBox'>确 定 </button>
-    <image class='open-push' src='/image/button_push_1.png' bindtap='show_box'></image>
+    <!-- <image class='open-push' src='/image/button_push_1.png' bindtap='show_box'></image> -->
   </view>
 </view>
