@@ -115,11 +115,21 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        wx.hideNavigationBarLoading();
-        wx.hideToast();
-        // console.log(res.data);
-        // console.log(id);
-        self.toPay(res.data, id);
+        console.log(res);
+        if(res.statusCode == 200){
+
+          wx.hideNavigationBarLoading();
+          wx.hideToast();
+          // console.log(res.data);
+          // console.log(id);
+          self.toPay(res.data, id);
+        }else{
+          wx.hideNavigationBarLoading()
+          wx.showToast({
+            title: '连接失败',
+            icon: 'none'
+          })
+        }
       },
       fail: function(res) {
         wx.hideNavigationBarLoading()

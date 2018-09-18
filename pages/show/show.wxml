@@ -1,10 +1,10 @@
 <view class='page'>
   <view class='page-title'>推荐其它宿舍的好友加入宅宅快乐盒，你们都将获得</view>
-  <view class='page-title'>￥6！</view>
+  <view class='page-title'>￥5！</view>
   <view class="page-section">
     <view class="page-section-title">你的姓名</view>
     <input class="page-section-input" name="input" placeholder="姓名" value='{{info.myName}}' bindinput="bindMyNameInput"></input>
-  </view>
+  </view> 
   <view class="page-section">
     <view class="page-section-title">你的手机号，用于支付宝收款与联系</view>
     <input class="page-section-input" name="input" type='number' placeholder="手机号" value='{{info.myPhone}}' bindinput="bindMyPhoneInput"></input>
@@ -17,6 +17,7 @@
     <view class="page-section-title">好友手机号，用于支付宝收款与联系</view>
     <input class="page-section-input" name="input" type='number' placeholder="手机号" value='' bindinput="bindFriendPhoneInput"></input>
   </view>
+  <view class='page-title'>推荐其它宿舍的好友加入宅宅快乐盒，你们都将获得</view>
   <button class="page-submit" type="primary" bindtap='submit_show'>提交</button>
     <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
 </view>
