@@ -86,16 +86,15 @@ Page({
       
       var interVal = setInterval(function() {
         if (self.flag) {
+          clearInterval(interVal);
           wx.hideToast();
           wx.navigateTo({
             url: '../box/box',
           })
-          clearInterval(interVal);
         }else{
           wx.showToast({
             title: '获取商品列表',
-            icon: "loading",
-            duration: 30000
+            icon: "loading"
           })
         }
       }, 150);
@@ -151,11 +150,7 @@ Page({
         // self.updateCateHeight();
       },
       fail: function(res) {
-        // console.log(res);
-        wx.showToast({
-          title: '连接失败',
-          duration: 30000
-        })
+        self.getGoodList();
       }
     })
   },

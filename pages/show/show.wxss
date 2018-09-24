@@ -1,22 +1,30 @@
-page{
-  height:100%;
-}
-
-.show{
-  height: 100%;
+page {
   width: 100%;
-  background-color: #8FBFF5;
+  height: 100%;
+  
+  background-color: #f8f8f8
+}
+.page{
+  width: 100%;
+  height: 100%;
+  margin-top: 20rpx;
+}
+.page-section{
+  margin-top: 20rpx;
+}
+.page-title{
+  width: 100%;
+  color:#666666;
+  font-size: 30rpx;
+  text-align: center;
+  margin-bottom: 10rpx;
 }
 
-.show-title{
-  color: white;
-}
-
-.show-t{
-  color: white;
-}
-.show-phone{
-  height: 90rpx;
-  width: 300rpx;
-  background-color: white;
+.page-section-call{
+  width: 100%;
+  color:#666666;
+  font-size: 30rpx;
+  text-align: center;
+  margin-top: 60rpx;
+  margin-bottom: 10rpx;
 }

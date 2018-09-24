@@ -26,7 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    wx.hideToast();
   },
 
   /**
@@ -80,6 +80,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
+    return {
+      title: '宅宅快乐盒',
+      path: '/pages/openBox/openBox'
+    }
   },
 
   wxPay: function(e) {
@@ -93,7 +97,7 @@ Page({
     const id = e.target.dataset.id;
     const price = e.target.dataset.price;
     const goodName = e.target.dataset.goodname;
-    const body = wx.getStorageSync('boxNumber')+":"+goodName;
+    const body = wx.getStorageSync('boxNumber') + ":" + goodName;
 
     // console.log(app.globalData.openid);
     wx.request({
@@ -104,23 +108,34 @@ Page({
         openId: app.globalData.openid,
         appId: app.globalData.appid,
         mchId: app.globalData.mchId,
-        body : body
+        body: body
       },
       method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        wx.hideNavigationBarLoading();
-        wx.hideToast();
-        // console.log(res.data);
-        // console.log(id);
-        self.toPay(res.data, id);
+        console.log(res);
+        if(res.statusCode == 200){
+
+          wx.hideNavigationBarLoading();
+          wx.hideToast();
+          // console.log(res.data);
+          // console.log(id);
+          self.toPay(res.data, id);
+        }else{
+          wx.hideNavigationBarLoading()
+          wx.showToast({
+            title: '连接失败',
+            icon: 'none'
+          })
+        }
       },
       fail: function(res) {
         wx.hideNavigationBarLoading()
         wx.showToast({
-          title: '连接失败'
+          title: '连接失败',
+          icon: 'none'
         })
       }
     });
