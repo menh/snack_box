@@ -1,10 +1,11 @@
 {
-  "pages":[
+  "pages": [
     "pages/openBox/openBox",
+    "pages/box/box",
     "pages/show/show",
-    "pages/box/box"
+    "pages/showSuccess/showSuccess"
   ],
-  "window":{
+  "window": { 
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#267BD9",
     "navigationBarTitleText": "宅宅快乐盒",

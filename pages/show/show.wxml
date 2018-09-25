@@ -2,22 +2,27 @@
   <view class='page-title'>推荐其它宿舍的好友加入宅宅快乐盒，你们都将获得</view>
   <view class='page-title'>￥5！</view>
   <view class="page-section">
-    <view class="page-section-title">你的姓名</view>
+    <view class="page-section-title">你的名字</view>
     <input class="page-section-input" name="input" placeholder="姓名" value='{{info.myName}}' bindinput="bindMyNameInput"></input>
-  </view> 
+  </view>
   <view class="page-section">
-    <view class="page-section-title">你的手机号，用于支付宝收款与联系</view>
+    <view class="page-section-title">你的手机号，用于支付宝收款与紧急联系</view>
     <input class="page-section-input" name="input" type='number' placeholder="手机号" value='{{info.myPhone}}' bindinput="bindMyPhoneInput"></input>
   </view>
   <view class="page-section">
-    <view class="page-section-title">好友姓名</view>
-    <input class="page-section-input" name="input" placeholder="姓名" value='' bindinput="bindFriendNameInput"></input>
+    <view class="page-section-title">好友名字</view>
+    <input class="page-section-input" name="input" placeholder="姓名" value='{{info.friendName}}' bindinput="bindFriendNameInput"></input>
   </view>
   <view class="page-section">
-    <view class="page-section-title">好友手机号，用于支付宝收款与联系</view>
-    <input class="page-section-input" name="input" type='number' placeholder="手机号" value='' bindinput="bindFriendPhoneInput"></input>
+    <view class="page-section-title">好友手机号，用于支付宝收款与紧急联系</view>
+    <input class="page-section-input" name="input" type='number' placeholder="手机号" value='{{info.friendPhone}}' bindinput="bindFriendPhoneInput"></input>
   </view>
-  <view class='page-title'>推荐其它宿舍的好友加入宅宅快乐盒，你们都将获得</view>
+  <view class="page-section">
+    <view class="page-section-title">好友宿舍位置，用于放置箱子</view>
+    <input class="page-section-input" name="input" placeholder="好友宿舍位置(例如:广中医k栋5XX)" value='{{info.friendAddress}}' bindinput="bindFriendAddressInput"></input>
+  </view>
   <button class="page-submit" type="primary" bindtap='submit_show'>提交</button>
-    <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
+  <view class='page-text'>只限于广中医与广药宿舍，每个盒子有一次投放机会</view>
+  <view class='page-text'>盒子放置成功后转账到支付宝</view>
+  <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
 </view>

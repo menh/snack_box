@@ -15,7 +15,7 @@ page{
 .open-push{
   height: 85rpx;
   width: 200rpx;
-  margin-top: 200rpx;
+  margin-top: 100rpx;
 }
 
 .openBox-box{

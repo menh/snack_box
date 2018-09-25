@@ -3,17 +3,20 @@
 const app = getApp()
 
 Page({
-  res: {
-    myName: '',
-    myPhone: '',
-    friendName: '',
-    friendPhone: ''
-  },
+
+
   data: {
+
     info: {
+      openid: '',
       myName: '',
-      myPhone: ''
+      myPhone: '',
+      friendName: '',
+      friendPhone: '',
+      friendAddress:'',
+      status: 0
     },
+
     phone: 13556026934,
   },
   /**
@@ -32,6 +35,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var self = this
+    wx.getStorage({
+      key: 'my_name',
+      success: function(res) {
+        self.setData({
+          ['info.myName']: res.data
+        })
+        console.log(res.data)
+      }
+    })
+    wx.getStorage({
+      key: 'my_phone',
+      success: function(res) {
+        self.setData({
+          ['info.myPhone']: res.data
+        })
+        console.log(res.data)
+      }
+    })
 
   },
 
@@ -40,6 +62,11 @@ Page({
    */
   onHide: function() {
 
+    this.setData({
+      ['info.friendName']: '',
+      ['info.friendPhone']: '',
+      ['info.friendAddress']: '',
+    })
   },
 
   /**
@@ -72,49 +99,112 @@ Page({
 
   bindMyNameInput: function(e) {
     var name = e.detail.value;
-    this.res.myName = name;
+    this.setData({
+      ['info.myName']: name
+    })
+    // this.res.myName = name;
   },
   bindMyPhoneInput: function(e) {
     var phone = parseInt(e.detail.value);
-    this.res.myPhone = phone;
+    this.setData({
+      ['info.myPhone']: phone
+    })
   },
   bindFriendNameInput: function(e) {
     var name = e.detail.value;
-    this.res.friendName = name;
+    this.setData({
+      ['info.friendName']: name
+    })
 
   },
   bindFriendPhoneInput: function(e) {
     var phone = parseInt(e.detail.value);
-    this.res.friendPhone = phone;
+    this.setData({
+      ['info.friendPhone']: phone
+    }) 
+  },
+
+  bindFriendAddressInput: function (e) {
+    var address = e.detail.value;
+    this.setData({
+      ['info.friendAddress']: address
+    })
   },
 
   submit_show: function(e) {
-    console.log(this.res);
-    if (this.res.myName.length > 0 && this.res.myPhone> 10000000000 && this.res.myPhone< 100000000000 && this.res.friendName.length > 0 && this.res.friendPhone > 10000000000 && this.res.friendPhone < 100000000000) {
-      wx.setStorageSync('user_name_phone', this.res);
-      wx.showModal({
-        title: '你的推荐已提交',
-        content: '我们将会尽快联系您的好友，盒子放置成功后将转账到你们的支付宝账户。感谢支持',
-        showCancel: false,
-        confirmText: '我知道了',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
+
+    if (this.data.info.myName.length > 0 && this.data.info.myPhone > 10000000000 && this.data.info.myPhone < 100000000000 && this.data.info.friendName.length > 0 && this.data.info.friendPhone > 10000000000 && this.data.info.friendPhone < 100000000000) {
+      this.data.info.openid = app.globalData.openid;
+      wx.setStorageSync('my_name', this.data.info.myName);
+      wx.setStorageSync('my_phone', this.data.info.myPhone);
+      this.subUserInfo(this.data.info);
     } else {
       wx.showToast({
-        title: '请填写完所有信息',
-        icon:'none'
+        title: '请正确填写信息',
+        icon: 'none'
       })
     }
   },
-  callMe:function(e){
+
+  subUserInfo: function(info) {
+    console.log(info);
+    wx.showLoading({
+      title: '正在提交',
+    })
+
+
+
+    wx.request({
+      url: app.globalData.serverIp + 'AddCustomerFriend.do',
+      data: {
+        openid: info.openid,
+        ownName: info.myName,
+        ownPhone: info.myPhone,
+        friendName: info.friendName,
+        friendPhone: info.friendPhone,
+        address: info.friendAddress,
+        status:info.status
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function(res) {
+        console.log(res.data);
+        console.log("true");
+        wx.hideLoading();
+        if (res.data == 1) {
+          wx.navigateTo({
+            url: '/pages/showSuccess/showSuccess',
+          })
+        }else{
+          wx.showModal({
+            title: '连接失败',
+            content: '连接失败，请联系客服',
+            showCancel:false
+          })
+        }
+      },
+      fail: function(res) {
+        console.log(res.data);
+        console.log("faile");
+      }
+    })
+
+
+
+
+
+
+
+
+
+
+  },
+
+  callMe: function(e) {
     wx.makePhoneCall({
-      phoneNumber: ''+this.data.phone
+      phoneNumber: '' + this.data.phone
     })
   }
 })
