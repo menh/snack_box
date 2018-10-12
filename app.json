@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/openBox/openBox",
-    "pages/box/box",
     "pages/show/show",
-    "pages/showSuccess/showSuccess"
+    "pages/showSuccess/showSuccess",
+    "pages/box/box"
   ],
   "window": { 
     "backgroundTextStyle": "light",

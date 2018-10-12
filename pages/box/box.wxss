@@ -34,6 +34,13 @@ page{
   font-weight: bold;
 }
 
+.leftColumn-operat{
+  width: 140rpx;
+  height: 59.5rpx;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+}
+
 .left-category-choose{
   width: 100%;
   height: 110rpx;

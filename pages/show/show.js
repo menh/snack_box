@@ -12,8 +12,9 @@ Page({
       myName: '',
       myPhone: '',
       friendName: '',
-      friendPhone: '',
+      friendPhone: 0,
       friendAddress:'',
+      referralCode:'',
       status: 0
     },
 
@@ -35,25 +36,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var self = this
-    wx.getStorage({
-      key: 'my_name',
-      success: function(res) {
-        self.setData({
-          ['info.myName']: res.data
-        })
-        console.log(res.data)
-      }
-    })
-    wx.getStorage({
-      key: 'my_phone',
-      success: function(res) {
-        self.setData({
-          ['info.myPhone']: res.data
-        })
-        console.log(res.data)
-      }
-    })
+    // var self = this
+    // wx.getStorage({
+    //   key: 'my_name',
+    //   success: function(res) {
+    //     self.setData({
+    //       ['info.myName']: res.data
+    //     })
+    //     console.log(res.data)
+    //   }
+    // })
+    // wx.getStorage({
+    //   key: 'my_phone',
+    //   success: function(res) {
+    //     self.setData({
+    //       ['info.myPhone']: res.data
+    //     })
+    //     console.log(res.data)
+    //   }
+    // })
 
   },
 
@@ -61,12 +62,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
-    this.setData({
-      ['info.friendName']: '',
-      ['info.friendPhone']: '',
-      ['info.friendAddress']: '',
-    })
   },
 
   /**
@@ -95,48 +90,61 @@ Page({
    */
   onShareAppMessage: function() {
 
+    return {
+      title: '宅宅快乐盒',
+      imageUrl:'/image/logo.png',
+      path: '/pages/openBox/openBox'
+    }
   },
 
-  bindMyNameInput: function(e) {
-    var name = e.detail.value;
-    this.setData({
-      ['info.myName']: name
-    })
-    // this.res.myName = name;
-  },
-  bindMyPhoneInput: function(e) {
-    var phone = parseInt(e.detail.value);
-    this.setData({
-      ['info.myPhone']: phone
-    })
-  },
-  bindFriendNameInput: function(e) {
-    var name = e.detail.value;
-    this.setData({
-      ['info.friendName']: name
-    })
-
-  },
+  // bindMyNameInput: function(e) {
+  //   var name = e.detail.value;
+  //   this.setData({
+  //     ['info.myName']: name
+  //   })
+  //   // this.res.myName = name;
+  // },
+  // bindMyPhoneInput: function(e) {
+  //   var phone = parseInt(e.detail.value);
+  //   this.setData({
+  //     ['info.myPhone']: phone
+  //   })
+  // },
   bindFriendPhoneInput: function(e) {
     var phone = parseInt(e.detail.value);
     this.setData({
       ['info.friendPhone']: phone
     }) 
   },
-
+  bindFriendNameInput: function (e) {
+    var name = e.detail.value;
+    this.setData({
+      ['info.friendName']: name
+    })
+  },
   bindFriendAddressInput: function (e) {
     var address = e.detail.value;
     this.setData({
       ['info.friendAddress']: address
     })
   },
+  bindReferralCode: function (e) {
+    var referralCode = e.detail.value;
+    this.setData({
+      ['info.myPhone']: referralCode
+    })
+  },
+
+
+
 
   submit_show: function(e) {
 
-    if (this.data.info.myName.length > 0 && this.data.info.myPhone > 10000000000 && this.data.info.myPhone < 100000000000 && this.data.info.friendName.length > 0 && this.data.info.friendPhone > 10000000000 && this.data.info.friendPhone < 100000000000) {
+    if (this.data.info.friendName.length > 0 && this.data.info.friendAddress.length > 0 && this.data.info.friendPhone > 10000000000 && this.data.info.friendPhone < 20000000000) {
+
       this.data.info.openid = app.globalData.openid;
-      wx.setStorageSync('my_name', this.data.info.myName);
-      wx.setStorageSync('my_phone', this.data.info.myPhone);
+      // wx.setStorageSync('my_name', this.data.info.myName);
+      // wx.setStorageSync('my_phone', this.data.info.myPhone);
       this.subUserInfo(this.data.info);
     } else {
       wx.showToast({
@@ -152,8 +160,6 @@ Page({
       title: '正在提交',
     })
 
-
-
     wx.request({
       url: app.globalData.serverIp + 'AddCustomerFriend.do',
       data: {
@@ -163,6 +169,7 @@ Page({
         friendName: info.friendName,
         friendPhone: info.friendPhone,
         address: info.friendAddress,
+        referralCode: info.referralCode,
         status:info.status
       },
       method: 'POST',

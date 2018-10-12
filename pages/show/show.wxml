@@ -1,11 +1,27 @@
 <view class='page'>
-  <view class='page-title'>推荐其它宿舍的好友加入宅宅快乐盒，你们都将获得</view>
-  <view class='page-title'>￥5！</view>
+  <view class='page-title'>快来领取你的专属盒子吧！</view>
+  <!-- <view class='page-title'>￥5！</view> -->
   <view class="page-section">
-    <view class="page-section-title">你的名字</view>
-    <input class="page-section-input" name="input" placeholder="姓名" value='{{info.myName}}' bindinput="bindMyNameInput"></input>
+    <view class="page-section-title">
+      <label class='page-info-text-label' style='color:red'>* </label>申请人名字</view>
+    <input class="page-section-input" name="input" placeholder="姓名" bindinput="bindFriendNameInput"></input>
   </view>
   <view class="page-section">
+    <view class="page-section-title">
+      <label class='page-info-text-label' style='color:red'>* </label>申请人手机号码</view>
+    <input class="page-section-input" name="input" type='number' placeholder="手机号码" bindinput="bindFriendPhoneInput"></input>
+  </view>
+  <view class="page-section">
+    <view class="page-section-title">
+      <label class='page-info-text-label' style='color:red'>* </label>申请人宿舍</view>
+    <input class="page-section-input" name="input" placeholder="例如:广中医X栋5XX" bindinput="bindFriendAddressInput"></input>
+  </view>
+
+  <view class="page-section">
+    <view class="page-section-title">推荐人手机号码</view>
+    <input class="page-section-input" name="input" type='number' placeholder="没有可以不填写" bindinput="bindReferralCode"></input>
+  </view>
+  <!-- <view class="page-section">
     <view class="page-section-title">你的手机号，用于支付宝收款与紧急联系</view>
     <input class="page-section-input" name="input" type='number' placeholder="手机号" value='{{info.myPhone}}' bindinput="bindMyPhoneInput"></input>
   </view>
@@ -16,13 +32,9 @@
   <view class="page-section">
     <view class="page-section-title">好友手机号，用于支付宝收款与紧急联系</view>
     <input class="page-section-input" name="input" type='number' placeholder="手机号" value='{{info.friendPhone}}' bindinput="bindFriendPhoneInput"></input>
-  </view>
-  <view class="page-section">
-    <view class="page-section-title">好友宿舍位置，用于放置箱子</view>
-    <input class="page-section-input" name="input" placeholder="好友宿舍位置(例如:广中医k栋5XX)" value='{{info.friendAddress}}' bindinput="bindFriendAddressInput"></input>
-  </view>
+  </view> -->
   <button class="page-submit" type="primary" bindtap='submit_show'>提交</button>
-  <view class='page-text'>只限于广中医与广药宿舍，每个盒子有一次投放机会</view>
-  <view class='page-text'>盒子放置成功后转账到支付宝</view>
+  <view class='page-text'>只限于广中医与广药宿舍，同个宿舍不可重复申请</view>
+  <!-- <view class='page-text'>盒子放置成功后转账到支付宝</view> -->
   <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
 </view>

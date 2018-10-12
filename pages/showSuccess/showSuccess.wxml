@@ -3,12 +3,12 @@
 <view class='page-info'>
 <view class='page-info-title'>提交成功</view>
 <image class='page-info-image' src='/image/show_progress.png' mode="widthFix"></image>
-<view class='page-info-text'>预计<label class='page-info-text-label' style='color:red'>{{endTime}}</label>前处理完毕，放置成功后将会处理转账</view>
+<view class='page-info-text'>预计<label class='page-info-text-label' style='color:red'>{{endTime}}</label>前处理完毕，感谢您的支持</view>
 </view>
 <view class='page-operation'>
 
-  <button class="page-operation-button" type="primary" bindtap='back_show'>再邀一个</button>
-  <button class="page-operation-button" type="default" bindtap='back_home'>返回首页</button>
+  <!-- <button class="page-operation-button" type="primary" bindtap='back_show'>再邀一个</button> -->
+  <button class="page-operation-button" type="primary" bindtap='back_home'>返回首页</button>
 
 </view>
 </view>

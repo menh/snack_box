@@ -1,4 +1,0 @@
-
-alter table CATEGORY add REORDER int DEFAULT 1
-alter table CATEGORY add VALID CHAR(1) DEFAULT '1'
-alter table CATEGORY add GOOD_NUM INTEGER

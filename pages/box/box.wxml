@@ -4,6 +4,10 @@
     <view class='leftColumn'>
       <view wx:for="{{category}}" wx:key="{{index}}" data-id="category_{{index}}" data-index="{{index}}" class="left-category{{index === navActive ? '-choose':''}}" catchtap='chooseType'>{{item.categoryName}}
       </view>
+
+
+      <image class='leftColumn-operat' src='/image/button_push_1.png' bindtap='show_box'></image>
+
     </view>
   </view>
 
@@ -12,7 +16,7 @@
 
       <view class="box-category" id="category_{{index}}">{{item.categoryName}}</view>
 
-      <view class='box-snack' wx:for="{{item.categoryItem}}"wx:for-item="snack_item" wx:key="{{index}}">
+      <view class='box-snack' wx:for="{{item.categoryItem}}" wx:for-item="snack_item" wx:key="{{index}}">
         <image class='box-snack-img' src='{{snack_item.goodPic}}'></image>
         <view class='box-snack-property'>
           <view class='box-snack-name'>{{snack_item.goodName}}</view>

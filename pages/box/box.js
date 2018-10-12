@@ -79,9 +79,10 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     return {
       title: '宅宅快乐盒',
+      imageUrl: '/image/logo.png',
       path: '/pages/openBox/openBox'
     }
   },
@@ -97,9 +98,11 @@ Page({
     const id = e.target.dataset.id;
     const price = e.target.dataset.price;
     const goodName = e.target.dataset.goodname;
+    const goodId = e.target.dataset.id;
     const body = wx.getStorageSync('boxNumber') + ":" + goodName;
+    var boxNum = wx.getStorageSync('boxNumber');
 
-    // console.log(app.globalData.openid);
+    console.log(goodId);
     wx.request({
       url: app.globalData.serverIp + 'getPayParamers.do',
       data: {
@@ -108,7 +111,9 @@ Page({
         openId: app.globalData.openid,
         appId: app.globalData.appid,
         mchId: app.globalData.mchId,
-        body: body
+        body: body,
+        boxBsn: boxNum,
+        goodId: goodId
       },
       method: 'POST',
       header: {

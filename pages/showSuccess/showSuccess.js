@@ -71,6 +71,11 @@ Page({
    */
   onShareAppMessage: function() {
 
+    return {
+      title: '宅宅快乐盒',
+      imageUrl: '/image/logo.png',
+      path: '/pages/openBox/openBox'
+    }
   },
 
   back_show: function () {
