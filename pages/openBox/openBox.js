@@ -6,15 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    flag:false,//用来表示用户列表的获取情况
-    boxNumber: ''
+    flag: false, //用来表示用户列表的获取情况
+    boxNumber: '',
+    phone: 13556026934,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-  },
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -34,7 +34,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     this.getGoodList();
   },
 
@@ -83,7 +83,7 @@ Page({
     var boxNum = this.data.boxNumber;
     if (boxNum != '' && boxNum.length == 6) {
       // console.log(boxNum.length);
-      
+
       var interVal = setInterval(function() {
         if (self.flag) {
           clearInterval(interVal);
@@ -91,7 +91,7 @@ Page({
           wx.navigateTo({
             url: '../box/box',
           })
-        }else{
+        } else {
           wx.showToast({
             title: '获取商品列表',
             icon: "loading"
@@ -155,9 +155,21 @@ Page({
     })
   },
 
-  show_box:function(e){
+  show_box: function(e) {
     wx.navigateTo({
       url: '../show/show',
+    })
+  },
+
+  part_time: function(e) {
+    wx.navigateTo({
+      url: '../partTime/partTime',
+    })
+  },
+
+  callMe: function (e) {
+    wx.makePhoneCall({
+      phoneNumber: '' + this.data.phone
     })
   }
 })

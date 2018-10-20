@@ -6,7 +6,7 @@
       </view>
 
 
-      <image class='leftColumn-operat' src='/image/button_push_1.png' bindtap='show_box'></image>
+      <image class='leftColumn-operat' src='/image/button_apply_restocking2.png' bindtap='applyRestocking'></image>
 
     </view>
   </view>

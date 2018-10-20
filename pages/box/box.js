@@ -169,6 +169,12 @@ Page({
     })
   },
 
+  applyRestocking:function(e){
+    wx.navigateTo({
+      url: '../applyRestocking/applyRestocking',
+    })
+  },
+
   chooseType: function(e) {
     let id = e.currentTarget.dataset.id;
     let index = e.currentTarget.dataset.index;

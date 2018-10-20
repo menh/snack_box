@@ -1,11 +1,15 @@
 {
   "pages": [
     "pages/openBox/openBox",
+    "pages/job/checkJob/checkJob",
+    "pages/job/partTime/partTime",
+    "pages/applySuccess/applySuccess",
+    "pages/applyRestocking/applyRestocking",
     "pages/show/show",
     "pages/showSuccess/showSuccess",
     "pages/box/box"
   ],
-  "window": { 
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#267BD9",
     "navigationBarTitleText": "宅宅快乐盒",

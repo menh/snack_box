@@ -1,0 +1,15 @@
+<!--pages/showSuccess/showSuccess.wxml-->
+<view class='page'>
+<view class='page-info'>
+<view class='page-info-title'>提交成功</view>
+<image class='page-info-image' src='/image/apply_restocking_progress.png' mode="widthFix"></image>
+<view class='page-info-text'>您的补货申请已提交成功,我们将尽快给您补货！</view>
+<view class='page-info-text'>感谢您的支持！</view>
+</view>
+<view class='page-operation'>
+
+  <!-- <button class="page-operation-button" type="primary" bindtap='back_show'>再邀一个</button> -->
+  <button class="page-operation-button" type="primary" bindtap='back_shop'>返回商城</button>
+
+</view>
+</view>

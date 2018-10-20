@@ -1,0 +1,13 @@
+<view class='page'>
+  <view class='page-title'>————全部职位(1)————</view>
+  <view class="page-section">
+  <view class='page-section-item' data-index='0' bindtap='check_job'>
+  <view class='page-section-item-left'>
+  <view class='page-section-item-left-up'>宅宅快乐盒推广员</view>
+  <view class='page-section-item-left-down'>广中医 广药 兼职</view>
+  </view>
+  <view class='page-section-item-right'>￥160/20个</view>
+  </view>
+  </view>
+  <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
+</view>

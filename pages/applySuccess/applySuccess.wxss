@@ -1,0 +1,44 @@
+/* pages/openBox/openBox.wxss */
+page{
+  height:100%;
+}
+
+.page{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* justify-content: center; */
+}
+
+.page-info-title{
+  color:rgb(105, 186, 201);
+  font-size: 45rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 50rpx;
+  text-align: center;
+}
+
+.page-info-image{
+  width: 700rpx;
+  margin-top: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+
+.page-info-text{
+  color: grey;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.page-operation-button{
+  margin-top: 60rpx;
+  width: 700rpx;
+}
