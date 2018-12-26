@@ -1,5 +1,5 @@
 <view class='page'>
-  <view class='page-title'>{{info.boxNum}}申请补货，修改编号请回主页面</view>
+  <view class='memo-big'>{{info.boxNum}}申请补货，修改编号请回主页面</view>
   <view class="page-section">
     <view class="page-section-title">
       <label class='page-info-text-label' style='color:red'>* </label>你的名字</view>
@@ -15,5 +15,6 @@
     <input class="page-section-input" name="input" placeholder="选填" bindinput="bindRemarkInput"></input>
   </view>
   <button class="page-submit" type="primary" bindtap='submit_apply'>提交</button>
-  <view class="page-section-call" bindtap='callMe'>客服电话：{{phone}}</view>
+  <view class='memo-big'>补货时间：周一至周五。13:00前提交，当日补货</view>
+  <view class="memo-big" bindtap='callMe'>客服电话：{{phone}}</view>
 </view>

@@ -48,3 +48,247 @@ button{
 .page-section-radio{
   margin-left: 30rpx;
 }
+.memo{
+  width: 100%;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  font-size: 22rpx;
+  text-align: center;
+  color: #808080
+}
+.memo-big{
+  width: 100%;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #808080
+}
+
+.page-title{
+  width: 100%;
+  height: 205rpx;
+  background-color:#f4f4f4;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title-category{
+  width: 100%;
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.page-title-category-title-choose{
+  width: 375rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #267BD9;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.page-title-category-title{
+  width: 375rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #000000;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+
+
+.page-title-data{
+  width: 100%;
+  height: 100rpx;
+  margin-top: 5rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.page-title-data-class{
+  width: 750rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.page-title-data-class-data{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 10rpx;
+  color: #267BD9;
+  font-size: 40rpx;
+  text-align: center;
+}
+
+.page-title-data-class-data-day {
+  height: 25rpx;
+  font-size: 22rpx;
+  line-height: 100%;
+}
+
+.page-title-data-class-data-time {
+  height: 25rpx;
+  font-size: 22rpx;
+  line-height: 100%;
+}
+
+.page-title-data-class-title{
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #9A9A9A;
+  font-size: 23rpx;
+  text-align: center;
+}
+
+.page-title-opera{
+  width: 100%;
+  height: 100rpx;
+  margin-top: 5rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.page-title-opera-class{
+  width: 750rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.page-title-opera-class-image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 15rpx;
+  margin-bottom: 5rpx;
+  align-self: center;
+}
+.page-title-opera-class-title{
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #9A9A9A;
+  font-size: 18rpx;
+  text-align: center;
+}
+
+
+
+.page-order-item{
+  width: 730rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5rpx;
+  line-height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+}
+
+.page-order-item-img{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 15rpx;
+}
+
+.page-order-item-property{
+   width: 245rpx;
+  height: 80rpx;
+  margin-left: 20rpx;
+  line-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.page-order-item-property-main{
+  width: 100%;
+  margin-top: 7rpx;
+  margin-bottom: 8rpx;
+  color: #585858;
+  font-size: 27rpx;
+}
+
+.page-order-item-property-defalut{
+  width: 100%;
+  color: #999;
+  font-size: 27rpx;
+}
+
+.bottom_nav{
+  display: flex;
+  flex-direction: row;
+
+  border-style: solid none none none;
+  border-color: rgb(180, 180, 180);
+  border-width: 1rpx;
+
+  
+  width: 100%;
+  height: 100rpx;
+  padding: 0;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  align-content: center;
+}
+.bottom_nav_item{
+  width: 375rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom_nav_item_image{
+  width: 70rpx;
+  height: 70rpx;
+}
+
+.bottom_nav_item_text{
+  font-size: 24rpx;
+  color: rgb(128, 128, 128)
+}
+
+.info-choice {
+  width: 510rpx;
+  height: 60rpx;
+  margin: 15rpx auto;
+  border-radius: 30rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info-choice-content {
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(128, 128, 128);
+}
+.info-choice-content-choose {
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(38, 123, 217);
+}

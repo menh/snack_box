@@ -5,7 +5,10 @@ App({
     const self = this;
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    wx.setStorageSync('logs', logs);
+
+    //获取本地openid
+    self.globalData.openid = wx.getStorageSync('openId');
 
     // 登录
     wx.login({
@@ -82,6 +85,7 @@ App({
     secret: "820c89735e9a6de87e7525811db45dde",
     mchId: "1505544541",
     heightArr:[],
-    category:[]
+    category:[],
+    boxNum:'',
   }
 })

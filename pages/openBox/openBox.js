@@ -84,7 +84,7 @@ Page({
     if (boxNum != '' && boxNum.length == 6) {
       // console.log(boxNum.length);
 
-      var interVal = setInterval(function() {
+      var interVal = setInterval(function () {
         if (self.flag) {
           clearInterval(interVal);
           wx.hideToast();
@@ -97,7 +97,7 @@ Page({
             icon: "loading"
           })
         }
-      }, 150);
+      }, 1000);
 
     } else if (boxNum != '') {
       wx.showToast({

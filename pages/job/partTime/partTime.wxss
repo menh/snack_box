@@ -61,13 +61,6 @@ page {
   font-weight: bold;
 }
 
-.page-title{
-  width: 100%;
-  color:#666666;
-  font-size: 30rpx;
-  text-align: center;
-  margin-bottom: 30rpx;
-}
 
 .page-section-call{
   width: 100%;

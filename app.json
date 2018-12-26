@@ -1,18 +1,35 @@
 {
   "pages": [
-    "pages/openBox/openBox",
+    "pages/box/box",
+    "pages/bill/bill",
+    "pages/applyRestocking/applyRestocking",
     "pages/job/checkJob/checkJob",
     "pages/job/partTime/partTime",
     "pages/applySuccess/applySuccess",
-    "pages/applyRestocking/applyRestocking",
     "pages/show/show",
-    "pages/showSuccess/showSuccess",
-    "pages/box/box"
+    "pages/showSuccess/showSuccess"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "light", 
     "navigationBarBackgroundColor": "#267BD9",
     "navigationBarTitleText": "宅宅快乐盒",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor":"#267BD9",
+    "list": [
+      {
+        "pagePath": "pages/box/box",
+        "text": "商城",
+        "iconPath": "/image/icon/shop_1.png",
+        "selectedIconPath": "/image/icon/shop_2.png"
+      },
+      {
+        "pagePath": "pages/bill/bill",
+        "text": "购物记录",
+        "iconPath": "/image/icon/bill_1.png",
+        "selectedIconPath": "/image/icon/bill_2.png"
+      }
+    ]
   }
 }

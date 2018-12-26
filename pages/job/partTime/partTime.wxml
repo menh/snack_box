@@ -1,5 +1,5 @@
 <view class='page'>
-  <view class='page-title'>————全部职位(1)————</view>
+  <view class='page-tip'>————全部职位(1)————</view>
   <view class="page-section">
   <view class='page-section-item' data-index='0' bindtap='check_job'>
   <view class='page-section-item-left'>

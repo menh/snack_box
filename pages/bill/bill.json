@@ -1,8 +1,5 @@
 {
-  "backgroundColor": "#f4f4f4",
-  "navigationBarTitleText": "宅宅快乐盒",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "backgroundColorTop": "#f4f4f4"
-  
 }
