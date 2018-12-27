@@ -55,7 +55,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function() { 
+
+
     var boxNum = '';
     boxNum = wx.getStorageSync('boxNumber');
     this.setData({
@@ -74,6 +76,7 @@ Page({
           price: 0
         }
       })
+      console.log(category);
     } else {
       wx.startPullDownRefresh({});
     }
@@ -83,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getGoodList_2();
+    this.getGoodList();
 
     // //将导航设置为“盒子编号：？”
     // var boxNum = '';
@@ -128,13 +131,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-    return {
-      title: '宅宅快乐盒',
-      imageUrl: '/image/logo.png',
-      path: '/pages/openBox/openBox'
-    }
-  },
+  onShareAppMessage: function() {},
 
   wxPay: function(e) {
     const self = this;
@@ -158,10 +155,16 @@ Page({
         }
       })
     } else {
-      if (this.data.goodCartData.price > 0) {
+      if (this.data.goodCartData.price <= 0) {
+        wx.showToast({
+          title: '请选择商品',
+          icon: 'none'
+
+        })
+      } else if (this.data.goodCartData.price > 0) {
         wx.showModal({
           title: '请确认订单信息',
-          content: '商品数量:' + this.data.goodCartData.num + '总金额:' + this.data.goodCartData.price / 100,
+          content: '商品数量:' + this.data.goodCartData.num + '\n应付金额:￥' + this.data.goodCartData.price / 100,
           cancelText: "取消支付",
           confirmText: "确认支付",
           success(res) {
@@ -179,8 +182,6 @@ Page({
               const body = wx.getStorageSync('boxNumber');
               var boxNum = wx.getStorageSync('boxNumber');
               var orderDetail = self.getDetailByCategory(self.data.category);
-
-              console.log(goodId);
               wx.request({
                 url: app.globalData.serverIp + 'getPayParamers.do',
                 data: {
@@ -189,7 +190,7 @@ Page({
                   mchId: app.globalData.mchId,
                   body: body,
                   boxBsn: boxNum,
-                  orderDetail:orderDetail
+                  orderDetail: orderDetail
                 },
                 method: 'POST',
                 header: {
@@ -222,12 +223,7 @@ Page({
               });
 
 
-            } else if (res.cancel) {
-              console.log('用户点击取消')
-              self.setData({
-                box_focus: true
-              })
-            }
+            } else if (res.cancel) {}
           }
         })
       }
@@ -252,13 +248,14 @@ Page({
           icon: "success",
           duration: 1500
         })
+        self.initialCategoryGoodCart(self);
       },
       'fail': function(res) {},
       'complete': function(res) {}
     })
   },
 
-  getDetailByCategory:function(category){
+  getDetailByCategory: function(category) {
     var tempCategory = category;
     var detail = '';
     for (var i = 0; i < tempCategory.length; i++) {
@@ -270,9 +267,29 @@ Page({
         }
       }
     }
-    detail = detail.substr(0,detail.length-1);
+    detail = detail.substr(0, detail.length - 1);
     console.log(detail);
     return detail;
+  },
+
+
+  initialCategoryGoodCart:function(self){
+    var tempCategory = self.data.category;
+    for (var i = 0; i < tempCategory.length; i++) {
+      var item = tempCategory[i].categoryItem;
+      for (var j = 0; j < item.length; j++) {
+        var good = item[j];
+        good.purchaseQuantity = 0;
+      }
+    }
+    self.data.goodCartMap.clear();
+    self.setData({
+      category: tempCategory,
+      goodCartData: {
+        num: 0,
+        price: 0
+      }
+    })
   },
 
   applyRestocking: function(e) {
@@ -397,9 +414,6 @@ Page({
 
   getGoodList: function() {
     const self = this;
-    wx.showLoading({
-      title: '获取商品列表',
-    });
     wx.request({
       url: app.globalData.serverIp + 'getGoodList.do',
       data: {
@@ -409,25 +423,10 @@ Page({
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      success: function(res) {
-        console.log(res.data);
-        var category = res.data;
-        wx.setStorageSync('snack', category); //保存初始snack到缓存
-        //更新category与goodCartData
-        var goodCartMap = self.data.goodCartMap;
-        var goodCartData = self.data.goodCartData;
-        category = self.processCategory(category, goodCartMap);
-        category = self.priceAdjustment(category);
-        var goodCartData = self.getGoodCartDataByCategory(category);
-        app.globalData.category = category;
-        console.log(goodCartData);
-        self.setData({
-          category: category,
-          goodCartData: goodCartData
-        })
+      success: function (res) {
+        self.getGoodListCallback(self, res.data);
         // self.updateCateHeight();
         wx.stopPullDownRefresh();
-        wx.hideLoading();
       },
       fail: function(res) {
         wx.showToast({
@@ -438,38 +437,20 @@ Page({
     })
   },
 
-
-  getGoodList_2: function() {
-    console.log("hello")
-    const self = this;
-    wx.request({
-      url: app.globalData.serverIp + 'getGoodList.do',
-      data: {
-
-      },
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function(res) {
-        console.log(res.data);
-        var category = res.data;
-        wx.setStorageSync('snack', category); //保存初始snack到缓存
-        //更新category与goodCartData
-        var goodCartMap = self.data.goodCartMap;
-        var goodCartData = self.data.goodCartData;
-        category = self.processCategory(category, goodCartMap);
-        category = self.priceAdjustment(category);
-        var goodCartData = self.getGoodCartDataByCategory(category);
-        app.globalData.category = category;
-        console.log(goodCartData);
-        self.setData({
-          category: category,
-          goodCartData: goodCartData
-        })
-        // self.updateCateHeight();
-      },
-      fail: function(res) {}
+  getGoodListCallback:function(self,category){
+    // category = self.changeGoodPic(category);//图片更改
+    wx.setStorageSync('snack', category); //保存初始snack到缓存
+    console.log(category);
+    //更新category与goodCartData
+    var goodCartMap = self.data.goodCartMap;
+    category = self.processCategory(category, goodCartMap);//恢复购物车情况
+    category = self.priceAdjustment(category);//价格*100
+    var goodCartData = self.getGoodCartDataByCategory(category);//得到购物车数据
+    app.globalData.category = category;
+    console.log(goodCartData);
+    self.setData({
+      category: category,
+      goodCartData: goodCartData
     })
   },
 
@@ -489,7 +470,19 @@ Page({
     return tempCategory;
   },
 
-  priceAdjustment: function(category) {
+  changeGoodPic: function (category) {
+    var tempCategory = category;
+    for (var i = 0; i < tempCategory.length; i++) {
+      var item = tempCategory[i].categoryItem;
+      for (var j = 0; j < item.length; j++) {
+        item[j].goodPic = 'http://www.gzfjcyd.com/snack_box_http/getGoodPic.do?goodId=' + item[j].goodId;
+        // item[j].goodPic= "http://img1.3lian.com/2015/w7/85/d/101.jpg"
+      }
+    }
+    return tempCategory;
+  },
+
+  priceAdjustment: function (category) {
     var tempCategory = category;
     for (var i = 0; i < tempCategory.length; i++) {
       var item = tempCategory[i].categoryItem;
@@ -610,5 +603,17 @@ Page({
       goodCartFlag: false
     })
   },
+
+  bindgetuserinfo: function(e) {
+    var that = this;
+    if (e.detail.userInfo) {
+      // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      var avatarUrl = e.detail.userInfo.avatarUrl;
+      var nickName = e.detail.userInfo.nickName;
+      var gender = e.detail.userInfo.gender;
+      var openid = app.globalData.openid
+      console.log(avatarUrl, nickName, gender);
+    }
+  }
 
 })

@@ -210,7 +210,7 @@ page {
   text-align: center;
   position: absolute;
   left: 576rpx;
-  bottom: 25rpx;
+  bottom: 5rpx;
   z-index: 1;
 }
 

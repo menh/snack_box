@@ -13,7 +13,7 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res.code);
+        console.log('res.code:',res.code);
         self.getOpenid(res.code,self.globalData.appid, self.globalData.secret);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
@@ -42,7 +42,6 @@ App({
   },
 
   getOpenid: function (code,appid,secret) {
-    console.log("getOpenid");
     console.log("code: "+code);
     console.log("appid: " + appid);
     console.log("secret: " + secret);
@@ -58,16 +57,12 @@ App({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
-
         console.log("openid: " + res.data);
-        //self.globalData.openid ="o9P4b5CcgFHTMNr5DxRfnibP-WIM";
         self.globalData.openid = res.data
         wx.setStorageSync('openId', res.data)
-       // self.getCustomerId();
-        // self.unifiedorder(res);
       },
       fail: function (res) {
-        console.log('获取商品列表失败');//？
+        // console.log('连接失败');//？
       }
     })
   },
@@ -80,7 +75,6 @@ App({
     serverIp:'https://www.gzfjcyd.com/snack_box_http/',
     openid: '',
     customerId: '',
-    // secret: 'd3d7dccc2a338fc4ca1470abe440c4cc',
     appid: 'wx18559bdf27287a41',
     secret: "820c89735e9a6de87e7525811db45dde",
     mchId: "1505544541",

@@ -46,10 +46,9 @@
     <view wx:if="{{goodCartFlag}}" class='shopping-cart'>
       <view class='shopping-cart-num' bindtap='showGoodCart'>{{goodCartData.num}}</view>
       <view class='shopping-cart-price' bindtap='showGoodCart'>￥{{goodCartData.price/100}}</view>
-      <view class='shopping-cart-submit' bindtap='wxPay'>结 算</view>
+      <button class='shopping-cart-submit'  bindtap='wxPay'>结 算</button>
       <image class='shopping-cart-background' src='/image/icon/shoppingCartBackground1.png' bindtap='showGoodCart'></image>
     </view>
-
 
     <view wx:if="{{!goodCartFlag}}" class='shopping-cart2'>
       <view class='shopping-cart-title'>购物车</view>
@@ -58,12 +57,12 @@
         <view wx:for="{{category}}" wx:key="{{index}}">
           <view wx:for="{{item.categoryItem}}" wx:for-item="snack_item" wx:key="{{index}}">
             <view wx:if="{{snack_item.purchaseQuantity>0}}" class='good-cart-scroll-item'>
-            <!-- <view class='good-cart-scroll-item'> -->
-                <view class='good-cart-scroll-item-name'>{{snack_item.goodName}}</view>
-                <view class='good-cart-scroll-item-price'>￥{{snack_item.price*snack_item.purchaseQuantity/100}}</view>
-                <image class='good-cart-scroll-item-button' data-id="{{snack_item.goodId}}" bindtap='subtractGood' src='/image/icon/subtract.png'></image>
-                <view class='good-cart-scroll-item-text'>{{snack_item.purchaseQuantity}}</view>
-                <image class='good-cart-scroll-item-button' data-id="{{snack_item.goodId}}" bindtap='addGood' src='/image/icon/add.png'></image>
+              <!-- <view class='good-cart-scroll-item'> -->
+              <view class='good-cart-scroll-item-name'>{{snack_item.goodName}}</view>
+              <view class='good-cart-scroll-item-price'>￥{{snack_item.price*snack_item.purchaseQuantity/100}}</view>
+              <image class='good-cart-scroll-item-button' data-id="{{snack_item.goodId}}" bindtap='subtractGood' src='/image/icon/subtract.png'></image>
+              <view class='good-cart-scroll-item-text'>{{snack_item.purchaseQuantity}}</view>
+              <image class='good-cart-scroll-item-button' data-id="{{snack_item.goodId}}" bindtap='addGood' src='/image/icon/add.png'></image>
             </view>
           </view>
         </view>
@@ -73,7 +72,7 @@
 
       <view class='shopping-cart-num'>{{goodCartData.num}}</view>
       <view class='shopping-cart-price'>￥{{goodCartData.price/100}}</view>
-      <view class='shopping-cart-submit' bindtap='wxPay'>结 算</view>
+      <button class='shopping-cart-submit'  bindtap='wxPay'>结 算</button>
       <image class='shopping-cart-background2' src='/image/icon/shoppingCartBackground2.png'></image>
     </view>
 
